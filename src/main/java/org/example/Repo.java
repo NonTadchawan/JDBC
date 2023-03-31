@@ -40,11 +40,22 @@ public class Repo {
             throw new RuntimeException(e);
         }
     }
-    public void insert(int id,String name){
+
+    public void insert(int id, String name) {
         try {
             open();
             Statement statement = connection.createStatement();
-            statement.executeUpdate("INSERT INTO student(id,name) VALUES ("+id+",'"+name+"')");
+            statement.executeUpdate("INSERT INTO student(id,name) VALUES (" + id + ",'" + name + "')");
+            close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void update(String oldValue,String newValue){
+        try {
+            open();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("UPDATE student SET "+newValue+" WHERE "+oldValue);
             close();
         }catch (SQLException e){
             throw new RuntimeException(e);
