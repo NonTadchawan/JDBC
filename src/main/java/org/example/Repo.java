@@ -51,11 +51,21 @@ public class Repo {
             throw new RuntimeException(e);
         }
     }
-    public void update(String oldValue,String newValue){
+    public void update(String oldData,String newData){
         try {
             open();
             Statement statement = connection.createStatement();
-            statement.executeUpdate("UPDATE student SET "+newValue+" WHERE "+oldValue);
+            statement.executeUpdate("UPDATE student SET "+newData+" WHERE "+oldData);
+            close();
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+    public void delete(String predicate ){
+        try{
+            open();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("DELETE FROM student WHERE "+predicate);
             close();
         }catch (SQLException e){
             throw new RuntimeException(e);

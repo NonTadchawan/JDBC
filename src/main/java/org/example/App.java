@@ -10,6 +10,6 @@ public class App
         a.select("name = 'Non'");
         a.insert(14,"Nana");
         a.update("name = 'Bow'","name = 'Brown'");
-
+        a.delete("id = 13");
     }
 }
