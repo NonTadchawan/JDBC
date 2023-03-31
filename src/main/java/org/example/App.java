@@ -8,6 +8,7 @@ public class App
     public static void main( String[] args ) throws Throwable {
         Repo a = new Repo();
         a.select("name = 'Non'");
+        a.insert(13,"Nana");
 
     }
 }
